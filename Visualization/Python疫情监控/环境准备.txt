@@ -1,0 +1,6 @@
+python 3.7
+mysql 
+pycharm
+jupyter notebook
+hbuilder
+linux (centos7)
