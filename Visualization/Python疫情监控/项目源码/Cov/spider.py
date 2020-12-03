@@ -11,9 +11,9 @@ def get_conn():
     :return: 连接，游标
     """
     # 创建连接
-    conn = pymysql.connect(host="122.51.251.91",
-                           user="user1",
-                           password="123456",
+    conn = pymysql.connect(host="localhost",
+                           user="root",
+                           password="yinuxy",
                            db="cov",
                            charset="utf8")
     # 创建游标
@@ -32,7 +32,7 @@ def get_tencent_data():
     """
     :return: 返回历史数据和当日详细数据
     """
-    url = 'https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5'
+    url = 'https://api.inews.qq.com/newsqa/v1/query/inner/publish/modules/list?modules=chinaDayList,chinaDayAddList,cityStatis,nowConfirmStatis,provinceCompare'
     headers = {
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36',
     }

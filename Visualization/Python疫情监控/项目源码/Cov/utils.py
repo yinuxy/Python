@@ -10,9 +10,9 @@ def get_conn():
     :return: 连接，游标
     """
     # 创建连接
-    conn = pymysql.connect(host="122.51.251.91",
-                           user="user1",
-                           password="123456",
+    conn = pymysql.connect(host="127.0.0.1",
+                           user="root",
+                           password="",
                            db="cov",
                            charset="utf8")
     # 创建游标

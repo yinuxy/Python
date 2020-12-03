@@ -60,9 +60,10 @@ class VipSpider(object):
                                   charset='utf8mb4',
                                   cursorclass=pymysql.cursors.DictCursor)
         self.cur = self.conn.cursor()
-        self.cur.execute("CREATE DATABASE IF NOT EXISTS `vip`")
-        self.cur.execute("USE vip")
-        self.cur.execute("CREATE TABLE IF NOT EXISTS Cosmetics (`id` INT PRIMARY KEY AUTO_INCREMENT,`title` VARCHAR(200),`discount` VARCHAR(10),`saleprice` VARCHAR(10),`oldprice` VARCHAR(10),`shopname` VARCHAR(100),`description` VARCHAR(200),`imageurl` VARCHAR(300),`itemurl` VARCHAR(100))")
+        self.cur.execute("CREATE DATABASE IF NOT EXISTS `jobs`")
+        self.cur.execute("USE jobs")
+        self.cur.execute("DROP TABLE IF EXISTS `web_51jobs`")
+        self.cur.execute("CREATE TABLE `web_51jobs` (`id` INT PRIMARY KEY AUTO_INCREMENT,`position` varchar(200) DEFAULT NULL,`wages` varchar(200) DEFAULT NULL,`region` varchar(200) DEFAULT NULL,`experience` varchar(200) DEFAULT NULL,`education` varchar(200) DEFAULT NULL,`need_people` varchar(100) DEFAULT NULL,`publish_date` varchar(200) DEFAULT NULL,`english` varchar(300) DEFAULT NULL,`welfare_tags` varchar(200) DEFAULT NULL,`job_information` varchar(200) DEFAULT NULL,`work_address` varchar(200) DEFAULT NULL,`company_name` varchar(200) DEFAULT NULL,`company_nature` varchar(200) DEFAULT NULL,`company_scale` varchar(200) DEFAULT NULL,`company_industry` varchar(200) DEFAULT NULL,`company_information` varchar(200) DEFAULT NULL,PRIMARY KEY (`id`))")
 
 
     def handle_click(self):
