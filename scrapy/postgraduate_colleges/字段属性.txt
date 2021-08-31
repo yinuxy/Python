@@ -1,0 +1,2 @@
+university:         大学名称
+attributes:         院校属性

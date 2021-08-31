@@ -20,9 +20,9 @@ from selenium.webdriver.chrome.options import Options
 
 class JobSpider:
     def __init__(self):
-        self.base_url = 'https://search.51job.com/list/000000,000000,0000,00,9,99,%s,2,%s.html'
+        self.base_url = 'https://search.51job.com/list/080200,000000,0000,00,9,99,%s,2,%s.html'
         self.headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.13 Safari/537.36'}
-        self.keyword = 'python开发工程师'
+        self.keyword = 'Java开发工程师'
         self.chrome_options=Options()
         self.chrome_options.add_argument('--headless')
         self.conn=pymysql.connect(host="127.0.0.1",
@@ -33,8 +33,8 @@ class JobSpider:
         self.cur = self.conn.cursor()
         self.cur.execute("CREATE DATABASE IF NOT EXISTS `jobs`")
         self.cur.execute("USE jobs")
-        self.cur.execute("DROP TABLE IF EXISTS `web_51jobs_development`")
-        self.cur.execute("CREATE TABLE IF NOT EXISTS `web_51jobs_development` (`id` INT PRIMARY KEY AUTO_INCREMENT,`position` varchar(100),`wages` varchar(20),`region` varchar(100),`experience` varchar(100),`education` varchar(100),`need_people` varchar(20),`publish_date` varchar(20),`english` varchar(100),`welfare_tags` varchar(200),`job_information` varchar(4000),`work_address` varchar(200),`company_name` varchar(200),`company_nature` varchar(200),`company_scale` varchar(200),`company_industry` varchar(200),`company_information` varchar(4000),`job_url` varchar(100))")
+        self.cur.execute("DROP TABLE IF EXISTS `web_51jobs_javadevelopment`")
+        self.cur.execute("CREATE TABLE IF NOT EXISTS `web_51jobs_javadevelopment` (`id` INT PRIMARY KEY AUTO_INCREMENT,`position` varchar(100),`wages` varchar(20),`region` varchar(100),`experience` varchar(100),`education` varchar(100),`need_people` varchar(20),`publish_date` varchar(20),`english` varchar(100),`welfare_tags` varchar(200),`job_information` varchar(4000),`work_address` varchar(200),`company_name` varchar(200),`company_nature` varchar(200),`company_scale` varchar(200),`company_industry` varchar(200),`company_information` varchar(4000),`job_url` varchar(100))")
         
         
     def tatal_url(self):
@@ -201,7 +201,7 @@ class JobSpider:
             company_industry = job["公司行业"]
             company_information = job["公司信息"]
             job_url = job['链接']
-            sql = "INSERT INTO `web_51jobs_development` (`position`,`wages`,`region`,`experience`,`education`,`need_people`,`publish_date`,`english`,`welfare_tags`,`job_information`,`work_address`,`company_name`,`company_nature`,`company_scale`,`company_industry`,`company_information`,`job_url`) VALUES ('"+ position +"','"+ wages +"','"+ region +"','"+ experience +"','"+ education +"','"+ need_people +"','"+ publish_date +"','"+ english +"','"+ welfare_tags +"','"+ job_information +"','"+ work_address +"','"+ company_name +"','"+ company_nature +"','"+ company_scale +"','"+ company_industry +"','"+ company_information+"','"+ job_url+"')"
+            sql = "INSERT INTO `web_51jobs_javadevelopment` (`position`,`wages`,`region`,`experience`,`education`,`need_people`,`publish_date`,`english`,`welfare_tags`,`job_information`,`work_address`,`company_name`,`company_nature`,`company_scale`,`company_industry`,`company_information`,`job_url`) VALUES ('"+ position +"','"+ wages +"','"+ region +"','"+ experience +"','"+ education +"','"+ need_people +"','"+ publish_date +"','"+ english +"','"+ welfare_tags +"','"+ job_information +"','"+ work_address +"','"+ company_name +"','"+ company_nature +"','"+ company_scale +"','"+ company_industry +"','"+ company_information+"','"+ job_url+"')"
             self.cur.execute(sql)
             self.conn.commit()
 #            self.conn.close()

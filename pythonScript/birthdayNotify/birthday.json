@@ -1,0 +1,15 @@
+{
+    "friend1":{
+        "name":"梁俊",
+        "relationship":"好朋友",
+        "birthday":"1998-08-26",
+        "isLunar":true
+
+    },
+    "friend2":{
+        "name":"谭澳",
+        "relationship":"好朋友",
+        "birthday":"1999-07-14",
+        "isLunar":false
+    }
+}

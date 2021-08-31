@@ -2,7 +2,7 @@
 
 ## pythonScript ##
 * [证件照背景色替换](https://github.com/InfiniteYinux/Python/tree/master/pythonScript/Certificate_photo_for_background_color/)
-* [上下班打卡提醒](https://github.com/InfiniteYinux/Python/tree/master/pythonScript/dingReminder/)
+* [上下班打卡提醒](https://github.com/InfiniteYinux/Python/tree/master/pythonScript/messageReminder/)
 * [使用python在Excel里面画图](https://github.com/InfiniteYinux/Python/tree/master/pythonScript/draw_excel/)
 * [惊雷歌词生成器](https://github.com/InfiniteYinux/Python/tree/master/pythonScript/jingLei-songsGenerator/)
 * [小米商城抢购](https://github.com/InfiniteYinux/Python/tree/master/pythonScript/miStoreBuy/)
