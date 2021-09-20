@@ -1,15 +1,38 @@
 {
     "friend1":{
-        "name":"梁俊",
-        "relationship":"好朋友",
+        "name":"name",
+        "relationship":"relationship",
         "birthday":"1998-08-26",
-        "isLunar":true
-
+        "isLunar": true
     },
     "friend2":{
-        "name":"谭澳",
-        "relationship":"好朋友",
+        "name":"name",
+        "relationship":"relationship",
         "birthday":"1999-07-14",
+        "isLunar":false
+    },
+    "friend3":{
+        "name":"name",
+        "relationship":"relationship",
+        "birthday":"1971-07-10",
+        "isLunar":true
+    },
+    "friend4":{
+        "name":"name",
+        "relationship":"relationship",
+        "birthday":"1972-01-23",
+        "isLunar":true
+    },
+    "friend5":{
+        "name":"name",
+        "relationship":"relationship",
+        "birthday":"1994-08-20",
+        "isLunar":true
+    },
+    "friend6":{
+        "name":"name",
+        "relationship":"relationship",
+        "birthday":"1999-06-10",
         "isLunar":false
     }
 }

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
+import time
 import smtplib
-import logging
 import datetime
 import requests
 from email.mime.text import MIMEText
@@ -78,7 +78,7 @@ def birthdayNotify(path='./birthday.json'):
             solardate = thisbirth.to_solar_date()
 
             if (solardate-today).days < 0 :
-                thisbirth = datetime.date(today.year+1,birth.month,birth.day)
+                thisbirth = LunarDate(today.year+1,birth.month,birth.day)
                 solardate = thisbirth.to_solar_date()
             age = thisbirth.year - birthyear + 1
 
@@ -86,22 +86,25 @@ def birthdayNotify(path='./birthday.json'):
             # print(res)
             # sendmail(res,value['relationship'], value['name'])
 
-            if (solardate-today).days==7 or (solardate-today).days==0:
-                res = "今天是公历 {}  \n您的{}{}将于{}年{}月{}日过生日（{}天后）\n{}\n\n今天是他的第{}个生日，快去为他挑选一件合适的礼物吧~\n\n{}\n\n\n".format(today, value['relationship'], value['name'], solardate.year, solardate.month, solardate.day, (solardate-today).days, ln_date_str(birth.month,birth.day), age, hitokoto())
+            if (solardate-today).days<=7 and (solardate-today).days>=0:
+                res = "今天是公历 {}  \n您的{}{}将于{}年{}月{}日过生日（{}天后）\n农历:{}\n\n今天是他的第{}个生日，快去为他挑选一件合适的礼物吧~\n\n{}\n\n\n".format(today, value['relationship'], value['name'], solardate.year, solardate.month, solardate.day, (solardate-today).days, ln_date_str(birth.month,birth.day), age, hitokoto())
+                print(res)
                 sendmail(res,value['relationship'], value['name'])
         else:
-            thisbirth = datetime.date(today.year,birth.month,birth.day)
+            thisbirth = LunarDate(today.year,birth.month,birth.day)
             if (thisbirth-today).days < 0 :
-                thisbirth = datetime.date(today.year+1,birth.month,birth.day)
+                thisbirth = LunarDate(today.year+1,birth.month,birth.day)
             age = thisbirth.year - birthyear + 1
 
             # res = "今天是公历 {}  \n您的 {} {} 将于 {}年{}月{}日 过生日（{}天后）\n\n今天是他的第{}个生日，快去为他挑选一件合适的礼物吧~\n\n{}\n\n\n".format(today, value['relationship'], value['name'], thisbirth.year, thisbirth.month, thisbirth.day, (thisbirth-today).days, age, hitokoto())
             # print(res)
             # sendmail(str(res),value['relationship'], value['name'])
 
-            if (thisbirth-today).days==7 or (thisbirth-today).days==0:
+            if (thisbirth-today).days<=7 and (thisbirth-today).days>=0:
                 res = "今天是公历 {}  \n您的 {} {} 将于 {}年{}月{}日 过生日（{}天后）\n\n今天是他的第{}个生日，快去为他挑选一件合适的礼物吧~\n\n{}\n\n\n".format(today, value['relationship'], value['name'], thisbirth.year, thisbirth.month, thisbirth.day, (thisbirth-today).days, age, hitokoto())
-                sendmail(res,value['relationship'], value['name'])
+                print(res)
+                # sendmail(res,value['relationship'], value['name'])
+        time.sleep(5)
 
 def handler(event, context):
     birthdayNotify()
